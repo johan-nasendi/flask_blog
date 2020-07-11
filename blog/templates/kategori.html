@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block contenct %}
+<div class="col-md-8">
+  <h1 class="my-4">Kategori
+  </h1>
+
+<form method="POST" action="">
+  {{ form.hidden_tag() }}
+
+ <div class="form-group">
+  {% if form. nama_kategori.errors %}
+    {{ form. nama_kategori( class="form-control  is-invalid") }}
+    {%  for error in form.nama_kategori.errors %}
+      <div class="invaild-feedback">
+        {{ error }}
+      </div>
+    {% endfor %}
+  {% else %}
+    {{ form. nama_kategori.label() }}
+    {{ form. nama_kategori( class="form-control ") }}
+    {% endif %}
+  </div>
+  
+  {{ form.submit(class='btn btn-outline-info') }}
+</div>
+  {% endblock %}
