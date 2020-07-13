@@ -4,7 +4,7 @@
   <h1 class="my-4">Upload Arikel
   </h1>
 
-<form method="POST" action="" enctype = "multipart / form-data">
+<form method="POST" action="" enctype = "multipart/form-data">
   {{ form.hidden_tag() }}
 
  <div class="form-group">
@@ -50,16 +50,16 @@
   </div>
 
   <div class="form-group">
-    {% if form. thumbnail.errors %}
-    {{ form. thumbnail( class="form-control  is-invalid") }}
-    {%  for error in form. thumbnail.errors %}
+    {{ form.thumbnail( class="form-control-file") }}
+    {% if form.thumbnail.errors %}
+    {%  for error in form.thumbnail.errors %}
       <div class="invaild-feedback">
         {{ error }}
       </div>
    {% endfor %}
-   {% else %}
-    {{ form.  thumbnail.label() }}
-    {{ form.  thumbnail( class="form-control") }}
+<!--    {% else %}
+    {{ form.thumbnail.label() }}
+    {{ form.thumbnail( class="form-control") }} -->
     {% endif %}
   </div>
   <div class="form-check">
