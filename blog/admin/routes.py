@@ -6,7 +6,7 @@ from blog.admin.forms import pendaftaran, LoginForm, ArtikelForm, KategoriForm
 from blog.models import User, Artikel,  Kategori
 from flask_login import login_user, login_required, logout_user, current_user
 from PIL import Image
-from blog.admin.fungsi_gambar import simpan_gambar
+from .fungsi_gambar import simpan_gambar
 
 admin = Blueprint('admin', __name__)
 
