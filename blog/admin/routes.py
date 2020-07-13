@@ -71,17 +71,14 @@ def kategori():
     return render_template('kategori.html', form=form)
  
 
-
-
-
-
 @admin.route('/artikel', methods=['GET','POST'])
 @login_required
 def artikel():
     form = ArtikelForm()
     form.kategori.choices = [(str(kategori.id), kategori.nama) for kategori in Kategori.query.all()]
     if form.validate_on_submit():
-        gambar = simpan_gambar(form.thumbnail.data)
+        if form.thumbnail.data:
+            gambar = simpan_gambar(form.thumbnail.data)
         artikel = Artikel(judul=form.judul.data, konten=form.content.data, thumbnail=gambar, publish=form.publish.data, user_id=current_user.id,  kategori_id=form.kategori.data)
         db.session.add(artikel)
         db.session.commit()
