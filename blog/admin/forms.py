@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField, SelectField, FileField
 from wtforms.validators import DataRequired, length, Email, EqualTo, ValidationError
 from blog.models import User, Role
@@ -28,7 +29,8 @@ class ArtikelForm(FlaskForm):
     judul = StringField('Judul', validators=[DataRequired()])
     kategori = SelectField('kategori', validators=[DataRequired()])
     content = TextAreaField('Konten', validators=[DataRequired()])
-    thumbnail = FileField('Upload Gambar', validators=[DataRequired()])
+#     thumbnail = FileField('Upload Gambar', validators=[DataRequired()])
+    thumbnail = FileField('Upload Gambar', validators=[FileAllowed(['jpg','png'])])
     publish = BooleanField('Publish')
     submit = SubmitField('Submit')
 
